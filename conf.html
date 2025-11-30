@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosella - Confirm Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Confirm Your Order</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="prod1.html">Products</a>
+        <a href="conf.html">Cart</a>
+    </nav>
+</header>
+
+<section class="form-box">
+<h3>Order Summary</h3>
+
+<div id="cart-items"></div>
+
+<div id="total-price" 
+     style="margin:10px 0; font-size:18px; font-weight:600;">
+</div>
+
+<hr style="opacity:.3; margin:25px 0;">
+
+
+<!-- CUSTOMER FORM -->
+<form action="save_order.php" method="POST">
+
+    <label>Full Name:</label>
+    <input type="text" name="full_name" placeholder="Enter your full name" required>
+
+    <label>Phone Number:</label>
+    <input type="text" name="phone" placeholder="05xxxxxxxx" required>
+
+    <label>Select City:</label>
+    <select name="address" required>
+        <option disabled selected>Select your city</option>
+        <option value="Riyadh">Riyadh</option>
+        <option value="Jeddah">Jeddah</option>
+        <option value="Makkah">Makkah</option>
+        <option value="Madinah">Madinah</option>
+        <option value="Dammam">Dammam</option>
+        <option value="Khobar">Khobar</option>
+        <option value="Dhahran">Dhahran</option>
+        <option value="Taif">Taif</option>
+        <option value="Abha">Abha</option>
+        <option value="Khamis Mushait">Khamis Mushait</option>
+        <option value="Jazan">Jazan</option>
+        <option value="Tabuk">Tabuk</option>
+        <option value="Hail">Hail</option>
+        <option value="Qassim">Qassim (Buraidah)</option>
+        <option value="Najran">Najran</option>
+        <option value="Al Baha">Al Baha</option>
+        <option value="Al Jawf">Al Jawf</option>
+        <option value="Arar">Arar</option>
+    </select>
+
+    
+
+    <label>Payment Method:</label>
+    <select name="payment_method" required>
+        <option disabled selected>Select method</option>
+        <option value="Cash">Cash</option>
+        <option value="Credit Card">Credit Card</option>
+        
+    </select>
+
+    <!-- Hidden inputs for cart & total -->
+    <input type="hidden" name="cart" id="cart-data">
+    <input type="hidden" name="total_price" id="total-input">
+
+    <button class="btn" type="submit">Confirm Order</button>
+
+</form>
+
+</section>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartBox = document.getElementById("cart-items");
+    const totalBox = document.getElementById("total-price");
+    const cartDataInput = document.getElementById("cart-data");
+    const totalInput = document.getElementById("total-input");
+
+    let total = 0;
+    cartBox.innerHTML = "";
+
+    cart.forEach(item => {
+        total += item.price * item.qty;
+
+        cartBox.innerHTML += `
+            <div class="cart-item">
+                <strong>${item.name}</strong><br>
+                Price: ${item.price} SAR<br>
+                Qty: ${item.qty}
+                <hr>
+            </div>
+        `;
+    });
+
+    totalBox.innerHTML = "Total: " + total + " SAR";
+    cartDataInput.value = JSON.stringify(cart);
+    totalInput.value = total;
+</script>
+
+
+</body>
+</html>

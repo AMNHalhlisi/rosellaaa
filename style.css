@@ -1,0 +1,212 @@
+
+/* ===== Base Style ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f3ea; /* بيج فاتح دافئ */
+    color: #4a4238;      /* بني رمادي هادئ */
+    line-height: 1.7;
+}
+
+/* ===== Header ===== */
+.header {
+    background: #fffdf8; /* بيج ناصع */
+    padding: 25px;
+    border-bottom: 1px solid #e5dcc8;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 34px;
+    color: #b89b5e; /* ذهبي كلاسيكي */
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header nav a {
+    margin: 0 15px;
+    color: #8b7a5f; /* بني ذهبي خفيف */
+    text-decoration: none;
+    font-size: 16px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.header nav a:hover {
+    color: #b89b5e;
+    border-bottom: 2px solid #b89b5e;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom right, #fffdf8, #f5ebd6);
+    border-bottom: 1px solid #e8ddc8;
+}
+
+.hero h2 {
+    font-size: 42px;
+    color: #b89b5e; /* ذهبي */
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #7f7058;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 12px 28px;
+    background: #b89b5e; /* ذهبي كلاسيك */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #9f8650; /* ذهبي أغمق */
+}
+
+/* ===== Product Grid ===== */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product-card {
+    background: #fffdf8;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(150, 130, 90, 0.12);
+    transition: 0.3s;
+    border: 1px solid #e9dfc8;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 25px rgba(150, 130, 90, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    color: #b89b5e;
+    font-weight: 600;
+}
+
+.product-card p {
+    font-size: 18px;
+    color: #7f7058;
+}
+
+/* ===== Forms ===== */
+.form-box {
+    width: 60%;
+    max-width: 600px;
+    background: #fffdf8;
+    padding: 35px;
+    margin: 60px auto;
+    border-radius: 20px;
+    box-shadow: 0px 8px 18px rgba(150, 130, 90, 0.12);
+    border: 1px solid #e9dfc8;
+}
+
+.form-box label {
+    font-weight: 600;
+    color: #7f7058;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-box input,
+.form-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 17px;
+    border-radius: 10px;
+    border: 1px solid #d9cdb5;
+    background: #faf6ef;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.form-box input:focus,
+.form-box select:focus {
+    border-color: #b89b5e;
+    outline: none;
+    background: #fff;
+}
+
+/* ===== Product Info Box ===== */
+#product-info {
+    background: #faf4e6; /* بيج ناعم */
+    padding: 18px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #b89b5e;
+}
+
+#product-info h3 {
+    margin: 0;
+    color: #b89b5e;
+}
+
+/* ===== Thank You Page ===== */
+.hero h2 {
+    font-size: 34px;
+    color: #b89b5e;
+}
+
+.hero p {
+    color: #7f7058;
+}
+.cart-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fffdf8;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e8ddc8;
+}
+
+.qty-select {
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #d7c9b2;
+    background: #faf7f0;
+}
+
+.remove-btn {
+    background: #b85c5c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: #8d4646;
+}
