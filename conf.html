@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta viewport="width=device-width, initial-scale=1.0">
     <title>Rosella - Confirm Order</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -30,17 +30,17 @@
 <hr style="opacity:.3; margin:25px 0;">
 
 
-<!-- CUSTOMER FORM -->
-<form action="save_order.php" method="POST">
+<!-- CUSTOMER FORM (NO SUBMIT FOR GITHUB) -->
+<form>
 
     <label>Full Name:</label>
-    <input type="text" name="full_name" placeholder="Enter your full name" required>
+    <input type="text" placeholder="Enter your full name" required>
 
     <label>Phone Number:</label>
-    <input type="text" name="phone" placeholder="05xxxxxxxx" required>
+    <input type="text" placeholder="05xxxxxxxx" required>
 
     <label>Select City:</label>
-    <select name="address" required>
+    <select required>
         <option disabled selected>Select your city</option>
         <option value="Riyadh">Riyadh</option>
         <option value="Jeddah">Jeddah</option>
@@ -62,26 +62,29 @@
         <option value="Arar">Arar</option>
     </select>
 
-    
-
     <label>Payment Method:</label>
-    <select name="payment_method" required>
+    <select required>
         <option disabled selected>Select method</option>
         <option value="Cash">Cash</option>
         <option value="Credit Card">Credit Card</option>
-        
     </select>
 
-    
-    
+    <!-- hidden inputs so JS doesn’t error -->
+    <input type="hidden" id="cart-data">
+    <input type="hidden" id="total-input">
 
 </form>
 
-
 </section>
-<form> <button class="btn add-cart" onclick="window.location.href='thank.html'">
-    Confirm Order
-</button> </form>
+
+<!-- ✅ BUTTON THAT TAKES USER TO THANK YOU PAGE -->
+<button onclick="window.location.href='thank.html'" 
+        style="margin:20px auto; display:block; padding:10px 20px;">
+  ✔ Confirm Order
+
+</button>
+
+
 <script>
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -107,17 +110,11 @@
     });
 
     totalBox.innerHTML = "Total: " + total + " SAR";
+
+    // prevent JS errors
     cartDataInput.value = JSON.stringify(cart);
     totalInput.value = total;
 </script>
 
-
 </body>
 </html>
-
-
-
-
-
-
-
